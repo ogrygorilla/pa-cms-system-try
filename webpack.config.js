@@ -14,6 +14,7 @@ module.exports = (env, argv) => {
   const filename = (ext) => isProd ? `[name].[hash].bundle.${ext}` : `[name].bundle.${ext}`
 
   return {
+    target: "web", // target for build
     context: path.resolve(__dirname, "src"),
     entry: {
       main: "./index.js",
@@ -29,6 +30,13 @@ module.exports = (env, argv) => {
         "@": path.resolve(__dirname, "src"),
       },
     },
+    devServer: {
+      port: 3333,
+      open: true, // opens browser window after server start^
+      hot: true, // hot reload on file changes
+
+    },
+    devtool: isDev ? "source-map" : false,
     plugins: [
       new HtmlWebpackPlugin({
         template: "./index.html",
@@ -45,7 +53,6 @@ module.exports = (env, argv) => {
         filename: filename("css"),
       }),
     ],
-    devtool: isDev ? "source-map" : false,
     module: {
       rules: [
         {

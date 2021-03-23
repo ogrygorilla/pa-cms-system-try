@@ -4,7 +4,7 @@
   "description": "cms-system developed with pure JS/CSS by 3% team",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack --mode=development",
+    "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,7 +37,8 @@
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "webpack": "^5.27.2",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "core-js": "^3.9.0",
